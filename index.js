@@ -215,22 +215,9 @@ async function run() {
       }
     });
     //// get All Jobs ////
-    // app.get("/all-jobs", async (req, res) => {
-    //   try {
-    //     const jobs = await jobsCollections.find({}).toArray();
-    //     res.send(jobs);
-    //   } catch (error) {
-    //     console.error(error);
-    //     return res.status(500).send({
-    //       message: "Internal Server Error",
-    //       status: false
-    //     });
-    //   }
-    // });
-
     app.get("/all-jobs", async (req, res) => {
       try {
-        const jobs = await jobsCollections.find({}).limit(10).toArray();
+        const jobs = await jobsCollections.find({}).toArray();
         res.send(jobs);
       } catch (error) {
         console.error(error);
@@ -240,6 +227,19 @@ async function run() {
         });
       }
     });
+
+    // app.get("/all-jobs", async (req, res) => {
+    //   try {
+    //     const jobs = await jobsCollections.find({}).limit(40).toArray();
+    //     res.send(jobs);
+    //   } catch (error) {
+    //     console.error(error);
+    //     return res.status(500).send({
+    //       message: "Internal Server Error",
+    //       status: false
+    //     });
+    //   }
+    // });
 
 
     // app.get("/all-jobs", async (req, res) => {
